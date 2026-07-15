@@ -12,6 +12,11 @@ JavaScript, CSS, or HTML. Match existing conventions in the project first; where
 no local override, follow the standards below. These are the same rules the `WordPress` phpcs
 ruleset enforces.
 
+This skill is self-contained: the rules and examples here and in `references/` are enough to
+write and review compliant code. Do not web-fetch the WordPress handbook pages linked at the
+bottom unless the user explicitly asks for the current upstream wording — the links are for
+attribution and human reference only.
+
 ## When to use
 
 - Writing or editing plugin, theme, or WordPress-core-facing code.
@@ -34,7 +39,7 @@ Full detail and examples are in `references/php-coding-standards.md`. The rules 
 - Indent with real tabs, not spaces. Use spaces only for mid-line alignment.
 - Naming: functions and variables are `lower_snake_case`; class names are
   `Capitalized_Words_With_Underscores`; constants are `UPPER_SNAKE_CASE`. Class files are named
-  `class-my-class.md`-style: `class-{name}.php`.
+  `class-{name}.php`.
 - Braces open on the same line and are always used, even for single-statement blocks.
 - Spacing: space after control keywords and inside parentheses of control structures and
   function declarations/calls, e.g. `if ( true === $ready ) {` and `do_thing( $a, $b )`. Space
@@ -98,7 +103,7 @@ security-adjacent sniffs, and `WordPress-Docs` checks inline documentation.
 
 ## Attribution
 
-This skill summarizes the official WordPress Coding Standards Handbook
-(https://developer.wordpress.org/coding-standards/) and the source at
-[WordPress/wpcs-docs](https://github.com/WordPress/wpcs-docs), licensed GPL-2.0-or-later. For
-exhaustive rules and edge cases, consult those canonical sources.
+Derived from the WordPress Coding Standards Handbook
+(https://developer.wordpress.org/coding-standards/) and
+[WordPress/wpcs-docs](https://github.com/WordPress/wpcs-docs), licensed GPL-2.0-or-later. These
+links are provided for provenance and human reference, not as a prompt to fetch.
