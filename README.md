@@ -15,17 +15,32 @@ This repository repackages those skills as a Claude plugin and serves them throu
 marketplace, so you can install the whole set in Claude with one command instead of copying
 folders by hand. It currently bundles 18 skills.
 
-## Install
+## Install in the Claude desktop app
 
-In Claude, add this marketplace and install the plugin:
+Plugins are available in the Cowork and Code experiences (not in Chat).
+
+1. Open the Claude desktop app and select the **Cowork** tab at the top.
+2. In the left sidebar, open **Customize**, then **Plugins**.
+3. Click **Add marketplace** and enter the repository:
+
+   ```
+   dennis-n-dean/wp-agent-skills-marketplace
+   ```
+
+   The full `https://github.com/dennis-n-dean/wp-agent-skills-marketplace` URL works too.
+4. The **wp-agent-skills** plugin now appears in the plugin list. Select it and click **Install**.
+5. Open the installed plugin to see its 18 skills. Enable or disable individual skills as needed.
+
+To update later, open **Customize → Plugins**, find this marketplace, and click **Update** — Cowork
+re-pulls the latest from GitHub, and the daily sync keeps the repository current. To remove the
+plugin, open it and click **Uninstall**.
+
+## Install in Claude Code (CLI)
 
 ```
 /plugin marketplace add dennis-n-dean/wp-agent-skills-marketplace
 /plugin install wp-agent-skills@wp-agent-skills-marketplace
 ```
-
-In the Claude desktop app you can also add the same repository from the plugins and marketplace
-settings.
 
 ## How it stays current
 
