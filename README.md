@@ -1,19 +1,19 @@
 # wp-agent-skills marketplace
 
-A Claude plugin marketplace that packages the official
-[WordPress/agent-skills](https://github.com/WordPress/agent-skills) skill set as a single
-installable Claude plugin, `wp-agent-skills`, and keeps it in sync with upstream automatically.
+A Claude plugin marketplace of WordPress development tooling. It packages the official
+[WordPress/agent-skills](https://github.com/WordPress/agent-skills) skill set as an installable
+plugin (kept in sync automatically) and adds a companion WordPress Coding Standards skill.
 
-## What this is
+## Plugins in this marketplace
 
-[WordPress/agent-skills](https://github.com/WordPress/agent-skills) is a collection of Agent
-Skills that teach AI coding assistants how to build WordPress the right way: Gutenberg blocks,
-block themes, plugin development, the REST, Interactivity, and Abilities APIs, WP-CLI,
-performance, PHPStan, WordPress Playground, block patterns, and the WordPress Design System.
-
-This repository repackages those skills as a Claude plugin and serves them through a plugin
-marketplace, so you can install the whole set in Claude with one command instead of copying
-folders by hand. It currently bundles 18 skills.
+- **wp-agent-skills** — 18 skills mirrored from
+  [WordPress/agent-skills](https://github.com/WordPress/agent-skills): Gutenberg blocks, block
+  themes and patterns, plugin development, the REST, Interactivity, and Abilities APIs, WP-CLI,
+  performance, PHPStan, WordPress Playground, and the WordPress Design System. Rebuilt daily from
+  upstream.
+- **wpcs-standards** — the official WordPress Coding Standards (naming, formatting, security,
+  internationalization, and PHPDoc/JSDoc inline documentation) as a single skill, grounded in the
+  WordPress Coding Standards Handbook. Curated and portable, with no local toolchain required.
 
 ## Install in the Claude desktop app
 
@@ -28,11 +28,12 @@ Plugins are available in the Cowork and Code experiences (not in Chat).
    ```
 
    The full `https://github.com/dennis-n-dean/wp-agent-skills-marketplace` URL works too.
-4. The **wp-agent-skills** plugin now appears in the plugin list. Select it and click **Install**.
-5. Open the installed plugin to see its 18 skills. Enable or disable individual skills as needed.
+4. Both plugins from this marketplace now appear in the plugin list. Select **wp-agent-skills**,
+   **wpcs-standards**, or both, and click **Install**.
+5. Open an installed plugin to see its skills, and enable or disable individual skills as needed.
 
 To update later, open **Customize → Plugins**, find this marketplace, and click **Update** — Cowork
-re-pulls the latest from GitHub, and the daily sync keeps the repository current. To remove the
+re-pulls the latest from GitHub, and the daily sync keeps the repository current. To remove a
 plugin, open it and click **Uninstall**.
 
 ## Install in Claude Code (CLI)
@@ -40,26 +41,31 @@ plugin, open it and click **Uninstall**.
 ```
 /plugin marketplace add dennis-n-dean/wp-agent-skills-marketplace
 /plugin install wp-agent-skills@wp-agent-skills-marketplace
+/plugin install wpcs-standards@wp-agent-skills-marketplace
 ```
 
-## How it stays current
+## How wp-agent-skills stays current
 
 A GitHub Action (`.github/workflows/sync-plugin.yml`) runs daily and on demand. It clones
 upstream, rebuilds the plugin with `scripts/build-plugin.mjs`, and commits the result only when
 the bundled skills change. The build is deterministic: the plugin version is
 `0.<number-of-upstream-commits-touching-skills/>.0`, so a given upstream state always produces
-the same plugin, and the version advances only when the skills themselves change.
+the same plugin, and the version advances only when the skills themselves change. The
+`wpcs-standards` plugin is curated and versioned by hand, since coding standards change rarely.
 
 ## Layout
 
 - `.claude-plugin/marketplace.json` — the marketplace manifest.
-- `plugins/wp-agent-skills/` — the generated plugin (`.claude-plugin/plugin.json` and `skills/`).
-- `scripts/build-plugin.mjs` — deterministic build from an upstream checkout.
+- `plugins/wp-agent-skills/` — the auto-synced mirror plugin (`.claude-plugin/plugin.json` and `skills/`).
+- `plugins/wpcs-standards/` — the curated WordPress Coding Standards plugin.
+- `scripts/build-plugin.mjs` — deterministic build of wp-agent-skills from an upstream checkout.
 - `.github/workflows/sync-plugin.yml` — the daily upstream sync.
 
 ## Attribution and license
 
-The skills are authored and maintained by the WordPress project and its contributors at
-[WordPress/agent-skills](https://github.com/WordPress/agent-skills). This repository is an
-independent redistribution and is not affiliated with or endorsed by the WordPress project.
-Licensed under GPL-2.0-or-later, matching upstream. See [LICENSE](LICENSE).
+The `wp-agent-skills` skills are authored and maintained by the WordPress project and its
+contributors at [WordPress/agent-skills](https://github.com/WordPress/agent-skills). The
+`wpcs-standards` skill is derived from the WordPress Coding Standards Handbook and
+[WordPress/wpcs-docs](https://github.com/WordPress/wpcs-docs). This repository is an independent
+redistribution and is not affiliated with or endorsed by the WordPress project. Licensed under
+GPL-2.0-or-later, matching upstream. See [LICENSE](LICENSE).
