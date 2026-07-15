@@ -1,0 +1,42 @@
+name: sync-wp-agent-skills
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: "0 10 * * *"   # daily at 10:00 UTC (~3:00 AM America/Los_Angeles)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-wp-agent-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout marketplace repo
+        uses: actions/checkout@v4
+
+      - name: Clone upstream WordPress/agent-skills (full history for versioning)
+        run: git clone --quiet https://github.com/WordPress/agent-skills.git upstream
+
+      - name: Build plugin from upstream
+        run: node scripts/build-plugin.mjs --src upstream --out plugins/wp-agent-skills --marketplace .claude-plugin/marketplace.json
+
+      - name: Commit changes if any
+        run: |
+          rm -rf upstream
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            VERSION=$(node -p "require('./plugins/wp-agent-skills/.claude-plugin/plugin.json').version")
+            git add -A
+            git commit -m "chore: sync wp-agent-skills to v${VERSION} from upstream [skip ci]"
+            git push
+          else
+            echo "Already up to date with upstream."
+          fi
