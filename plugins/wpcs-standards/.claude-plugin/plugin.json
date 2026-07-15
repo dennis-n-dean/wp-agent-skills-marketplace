@@ -1,0 +1,21 @@
+{
+  "name": "wpcs-standards",
+  "version": "1.0.0",
+  "description": "WordPress Coding Standards (WPCS) for Claude: naming, formatting, Yoda conditions, security (escaping, sanitization, nonces, $wpdb->prepare), internationalization, and PHPDoc/JSDoc documentation for PHP, JavaScript, CSS, and HTML. Grounded in the official WordPress Coding Standards Handbook.",
+  "author": {
+    "name": "Dennis Dean"
+  },
+  "homepage": "https://developer.wordpress.org/coding-standards/wordpress-coding-standards/",
+  "repository": "https://github.com/dennis-n-dean/wp-agent-skills-marketplace",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress",
+    "wpcs",
+    "coding-standards",
+    "phpcs",
+    "php",
+    "security",
+    "internationalization",
+    "phpdoc"
+  ]
+}
