@@ -10,6 +10,12 @@
       "source": "./plugins/wp-agent-skills",
       "description": "Expert WordPress development skills for Claude, auto-synced from WordPress/agent-skills.",
       "version": "0.50.0"
+    },
+    {
+      "name": "wpcs-standards",
+      "source": "./plugins/wpcs-standards",
+      "description": "WordPress Coding Standards (WPCS) for Claude: naming, formatting, security, i18n, and PHPDoc/JSDoc documentation, grounded in the official handbook.",
+      "version": "1.0.0"
     }
   ]
 }
