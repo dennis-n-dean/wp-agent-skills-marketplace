@@ -9,15 +9,14 @@ plugin (kept in sync automatically) and adds a companion WordPress Coding Standa
 - **wp-agent-skills** — 18 skills mirrored from
   [WordPress/agent-skills](https://github.com/WordPress/agent-skills): Gutenberg blocks, block
   themes and patterns, plugin development, the REST, Interactivity, and Abilities APIs, WP-CLI,
-  performance, PHPStan, WordPress Playground, and the WordPress Design System. Rebuilt daily from
-  upstream.
+  performance, PHPStan, WordPress Playground, and the WordPress Design System.
 - **wpcs-standards** — the official WordPress Coding Standards (naming, formatting, security,
-  internationalization, and PHPDoc/JSDoc inline documentation) as a single skill, grounded in the
-  WordPress Coding Standards Handbook. Curated and portable, with no local toolchain required.
+  internationalization, and PHPDoc/JSDoc inline documentation) as a single skill, adapted from the
+  WordPress Coding Standards Handbook.
 
-## Install in the Claude desktop app
+## Install in the Claude
 
-Plugins are available in the Cowork and Code experiences (not in Chat).
+### in Coworks
 
 1. Open the Claude desktop app and select the **Cowork** tab at the top.
 2. In the left sidebar, open **Customize**, then **Plugins**.
@@ -36,7 +35,7 @@ To update later, open **Customize → Plugins**, find this marketplace, and clic
 re-pulls the latest from GitHub, and the daily sync keeps the repository current. To remove a
 plugin, open it and click **Uninstall**.
 
-## Install in Claude Code (CLI)
+## in Claude Code
 
 ```
 /plugin marketplace add dennis-n-dean/wp-agent-skills-marketplace
@@ -46,20 +45,11 @@ plugin, open it and click **Uninstall**.
 
 ## How wp-agent-skills stays current
 
-A GitHub Action (`.github/workflows/sync-plugin.yml`) runs daily and on demand. It clones
-upstream, rebuilds the plugin with `scripts/build-plugin.mjs`, and commits the result only when
-the bundled skills change. The build is deterministic: the plugin version is
-`0.<number-of-upstream-commits-touching-skills/>.0`, so a given upstream state always produces
-the same plugin, and the version advances only when the skills themselves change. The
-`wpcs-standards` plugin is curated and versioned by hand, since coding standards change rarely.
+A GitHub Action (`.github/workflows/sync-plugin.yml`) runs daily. It clones upstream, 
+rebuilds the plugin with `scripts/build-plugin.mjs`, and commits the result only when
+the bundled skills change. The plugin version is `0.<number-of-upstream-commits-touching-skills/>.0`. 
 
-## Layout
-
-- `.claude-plugin/marketplace.json` — the marketplace manifest.
-- `plugins/wp-agent-skills/` — the auto-synced mirror plugin (`.claude-plugin/plugin.json` and `skills/`).
-- `plugins/wpcs-standards/` — the curated WordPress Coding Standards plugin.
-- `scripts/build-plugin.mjs` — deterministic build of wp-agent-skills from an upstream checkout.
-- `.github/workflows/sync-plugin.yml` — the daily upstream sync.
+The `wpcs-standards` plugin is curated and versioned by hand (since the coding standards rarely change).
 
 ## Attribution and license
 
