@@ -31,9 +31,9 @@ plugin (kept in sync automatically) and adds a companion WordPress Coding Standa
    **wpcs-standards**, or both, and click **Install**.
 5. Open an installed plugin to see its skills, and enable or disable individual skills as needed.
 
-To update later, open **Customize → Plugins**, find this marketplace, and click **Update** — Cowork
-re-pulls the latest from GitHub, and the daily sync keeps the repository current. To remove a
-plugin, open it and click **Uninstall**.
+To update later, open **Customize → Plugins**, find this marketplace, and click **Update**. 
+
+To remove a plugin, open it and click **Uninstall**.
 
 ## in Claude Code
 
