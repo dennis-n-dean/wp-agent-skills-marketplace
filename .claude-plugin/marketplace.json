@@ -9,7 +9,7 @@
       "name": "wp-agent-skills",
       "source": "./plugins/wp-agent-skills",
       "description": "Expert WordPress development skills for Claude, auto-synced from WordPress/agent-skills.",
-      "version": "0.50.0"
+      "version": "0.51.0"
     },
     {
       "name": "wpcs-standards",

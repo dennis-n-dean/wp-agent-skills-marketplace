@@ -1,7 +1,7 @@
 {
   "name": "wp-agent-skills",
-  "version": "0.50.0",
-  "description": "18 WordPress development skills for Claude, synced from WordPress/agent-skills@2dbdc56. Covers Gutenberg blocks, block patterns, block themes, plugin development, REST API, Interactivity API, the Abilities API, WP-CLI, performance, PHPStan, Playground, and the WordPress Design System.",
+  "version": "0.51.0",
+  "description": "18 WordPress development skills for Claude, synced from WordPress/agent-skills@30cd418. Covers Gutenberg blocks, block patterns, block themes, plugin development, REST API, Interactivity API, the Abilities API, WP-CLI, performance, PHPStan, Playground, and the WordPress Design System.",
   "author": {
     "name": "Dennis Dean"
   },
